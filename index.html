@@ -633,6 +633,9 @@ api("init",null,"GET").then(function(r){window.ME=r.user?{id:r.user.id,name:r.us
   justify-self:stretch!important;
 }
 @media(max-width:740px){
+  #adm>.ax{position:relative!important;inset:auto!important;display:flex!important;flex-direction:column!important;width:100%!important;height:auto!important;min-height:100vh!important}
+  #adm>.ax>aside{flex:0 0 auto!important;width:100%!important;min-width:0!important;max-width:none!important;height:auto!important}
+  #adm>.ax>main{flex:1 1 auto!important;width:100%!important;height:auto!important;min-height:0!important}
   #adm{overflow:auto!important}
   #adm>.ax{
     position:relative!important;
@@ -671,7 +674,7 @@ const A=document.getElementById("adm"),tabs=["Overview","Orders","Products","Cus
 const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const rs=v=>"₹"+Number(v||0).toLocaleString("en-IN");
 const api=(a,b={},m)=>window.UXAPI(a,b,m||"POST");
-function shell(body){A.hidden=false;document.body.style.overflow="hidden";A.innerHTML='<div class="ax"><aside><div class="brand">UraXx <span>ADMIN</span></div><nav>'+tabs.map(t=>'<button class="'+(t===tab?'active':'')+'" data-tab="'+esc(t)+'">'+esc(t)+'</button>').join("")+'</nav></aside><main><div class="top"><div><h1>'+esc(tab)+'</h1><div class="muted">Store control centre · Cash on Delivery</div></div><button class="btn light" id="ax-close">Back to shop</button></div><div id="ax-body">'+body+'</div><div class="message" id="ax-msg"></div></main></div>'}
+function shell(body){A.hidden=false;document.body.style.overflow="hidden";A.innerHTML='<div class="ax" style="position:fixed!important;inset:0!important;display:flex!important;flex-direction:row!important;align-items:stretch!important;justify-content:flex-start!important;width:100vw!important;max-width:none!important;height:100vh!important;min-height:100vh!important;margin:0!important;padding:0!important;transform:none!important;gap:0!important"><aside style="position:relative!important;inset:auto!important;transform:none!important;flex:0 0 260px!important;width:260px!important;min-width:260px!important;max-width:260px!important;height:100vh!important;margin:0!important;border-radius:0!important;overflow-y:auto!important"><div class="brand">UraXx <span>ADMIN</span></div><nav>'+tabs.map(t=>'<button class="'+(t===tab?'active':'')+'" data-tab="'+esc(t)+'">'+esc(t)+'</button>').join("")+'</nav></aside><main style="position:relative!important;inset:auto!important;transform:none!important;float:none!important;flex:1 1 0!important;width:calc(100% - 260px)!important;min-width:0!important;max-width:none!important;height:100vh!important;min-height:0!important;margin:0!important;padding:25px!important;overflow:auto!important"><div class="top"><div><h1>'+esc(tab)+'</h1><div class="muted">Store control centre · Cash on Delivery</div></div><button class="btn light" id="ax-close">Back to shop</button></div><div id="ax-body">'+body+'</div><div class="message" id="ax-msg"></div></main></div>'}
 function say(t){let e=document.getElementById("ax-msg");if(e)e.textContent=t}
 function table(head,rows){return '<div class="panel"><table><thead><tr>'+head.map(x=>'<th>'+x+'</th>').join("")+'</tr></thead><tbody>'+(rows.length?rows.join(""):'<tr><td colspan="'+head.length+'">No records found.</td></tr>')+'</tbody></table></div>'}
 async function init(){shell('<div class="panel">Loading…</div>');try{let [o,p,c]=await Promise.all([api("admin_orders",{},"GET"),api("admin_products",{},"GET"),api("admin_customers",{},"GET")]);orders=o.orders||[];products=p.products||[];customers=c.customers||[];await render()}catch(e){shell('<div class="panel">Could not load admin data: '+esc(e.message)+'</div>')}}
