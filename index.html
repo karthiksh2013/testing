@@ -526,6 +526,54 @@ api("init",null,"GET").then(function(r){window.ME=r.user?{id:r.user.id,name:r.us
 <div id="adm" hidden></div>
 <style>
 #adm{position:fixed;inset:0;z-index:1000;overflow:auto;background:#f4f6fb;color:#18213a;font:14px/1.5 system-ui,sans-serif}#adm *{box-sizing:border-box}#adm .ax{min-height:100vh;display:grid;grid-template-columns:235px 1fr}#adm aside{background:#151b30;color:#fff;padding:20px 13px;position:sticky;top:0;height:100vh}#adm .brand{font-size:22px;font-weight:900;padding:10px 12px 22px}#adm .brand span{color:#ff4f8b}#adm nav{display:grid;gap:5px}#adm nav button{background:transparent;border:0;color:#cbd2e5;text-align:left;padding:10px 12px;border-radius:8px;cursor:pointer}#adm nav button.active,#adm nav button:hover{background:#2a3455;color:#fff}#adm main{padding:25px;min-width:0}#adm .top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:20px}#adm h1{font-size:26px;margin:0}#adm h2{font-size:18px;margin:0 0 12px}#adm .muted{color:#78839b}#adm .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px;margin:16px 0}#adm .card,#adm .panel{background:#fff;border:1px solid #e2e7f0;border-radius:12px;padding:16px;margin:12px 0;overflow:auto}#adm .kpi{font-size:24px;font-weight:800;margin-top:5px}#adm button{cursor:pointer}#adm .btn{border:0;border-radius:8px;padding:9px 12px;background:#29375f;color:white;font-weight:650}#adm .btn.light{background:#edf0f7;color:#26314d}#adm .btn.red{background:#b42338}#adm input,#adm select,#adm textarea{font:inherit;border:1px solid #d9dfeb;border-radius:7px;padding:8px;max-width:100%;background:#fff;color:#172033}#adm .tools,#adm .form{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0}#adm .form label{display:grid;gap:5px;font-weight:600}#adm table{width:100%;border-collapse:collapse;min-width:650px}#adm th,#adm td{text-align:left;padding:10px 8px;border-bottom:1px solid #edf0f5;vertical-align:top}#adm th{font-size:11px;color:#758098;text-transform:uppercase}#adm .message{min-height:22px;color:#14734d}@media(max-width:740px){#adm .ax{grid-template-columns:1fr}#adm aside{height:auto;position:relative;padding:10px}#adm .brand{padding:4px 8px 10px}#adm nav{display:flex;overflow:auto}#adm nav button{white-space:nowrap;padding:8px}#adm main{padding:14px}}
+/* Admin layout hardening: persistent left navigation + right content */
+#adm .ax{
+  display:grid!important;
+  grid-template-columns:260px minmax(0,1fr)!important;
+  grid-template-rows:minmax(100vh,auto)!important;
+  align-items:start!important;
+  width:100%!important;
+  min-height:100vh!important;
+}
+#adm .ax>aside{
+  grid-column:1!important;
+  grid-row:1!important;
+  display:block!important;
+  width:260px!important;
+  min-width:0!important;
+  height:100vh!important;
+  position:sticky!important;
+  top:0!important;
+  align-self:start!important;
+  overflow-y:auto!important;
+}
+#adm .ax>main{
+  grid-column:2!important;
+  grid-row:1!important;
+  width:100%!important;
+  min-width:0!important;
+  max-width:none!important;
+  justify-self:stretch!important;
+}
+@media(max-width:740px){
+  #adm .ax{
+    grid-template-columns:minmax(0,1fr)!important;
+    grid-template-rows:auto minmax(0,1fr)!important;
+  }
+  #adm .ax>aside{
+    grid-column:1!important;
+    grid-row:1!important;
+    width:100%!important;
+    height:auto!important;
+    position:relative!important;
+    overflow:visible!important;
+  }
+  #adm .ax>main{
+    grid-column:1!important;
+    grid-row:2!important;
+  }
+  #adm nav{display:flex!important;overflow-x:auto!important;white-space:nowrap!important}
+}
 </style>
 <script>
 (function(){
