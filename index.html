@@ -566,7 +566,7 @@ api("init",null,"GET").then(function(r){window.ME=r.user?{id:r.user.id,name:r.us
 </style>
 <script>
 (function(){
-const A=const A=document.getElementById("adm"),tabs=["Overview","Orders","Products","Customers","Inventory","Sales & Reports","Coupons & Offers","Website Settings","Staff & Permissions","Activity Logs","Settings"];let tab="Overview",orders=[],products=[],customers=[];
+const A=document.getElementById("adm"),tabs=["Overview","Orders","Products","Customers","Inventory","Sales & Reports","Coupons & Offers","Website Settings","Staff & Permissions","Activity Logs","Settings"];let tab="Overview",orders=[],products=[],customers=[];
 const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const rs=v=>"₹"+Number(v||0).toLocaleString("en-IN");
 const api=(a,b={},m)=>window.UXAPI(a,b,m||"POST");
