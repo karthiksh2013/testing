@@ -126,12 +126,12 @@ footer{max-width:1120px;margin:0 auto;padding:0 20px 40px;color:var(--muted);fon
 .hero-wa-copy{display:flex;flex-direction:column;gap:4px}
 .hero-wa-copy strong{font-size:17px}.hero-wa-copy>span{font-size:13px;color:#6c6090}.hero-wa-copy b{display:inline-flex;align-items:center;gap:7px;margin-top:5px;background:#ff4d91;color:#fff;padding:8px 12px;border:2px solid #251747;border-radius:10px;width:max-content;box-shadow:2px 2px 0 #251747}
 .wa-bubble{margin-left:auto;display:grid;place-items:center;width:42px;height:42px;flex:0 0 42px;border-radius:50%;background:#25d366;color:#fff;border:2px solid #251747;font-size:27px;box-shadow:2px 2px 0 #251747}
-.ux-wa-float{position:fixed;right:22px;bottom:24px;z-index:9999;display:flex;align-items:center;gap:8px;text-decoration:none;color:#251747;font-weight:800}
+.ux-wa-float{position:fixed;right:22px;bottom:76px;z-index:9999;display:flex;align-items:center;gap:8px;text-decoration:none;color:#251747;font-weight:800}
 .ux-wa-float .wa-note{position:relative;background:#fffdf7;border:2px solid #251747;border-radius:14px;padding:9px 12px;box-shadow:3px 3px 0 #251747;transform:rotate(-3deg)}
 .ux-wa-float .wa-icon{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:#25d366;border:3px solid #251747;box-shadow:4px 4px 0 #251747;color:#fff;font-size:31px;transition:transform .18s ease}
 .ux-wa-float:hover .wa-icon{transform:translateY(-3px) rotate(8deg)}
 .ux-wa-float .wa-arrow{position:absolute;right:53px;bottom:55px;color:#ff4d91;font-size:31px;transform:rotate(28deg);pointer-events:none}
-@media(max-width:560px){.hero-whatsapp-card{width:100%;margin-top:16px}.ux-wa-float{right:14px;bottom:16px}.ux-wa-float .wa-note{font-size:12px;padding:7px 9px}.ux-wa-float .wa-icon{width:52px;height:52px}}
+@media(max-width:560px){.hero-whatsapp-card{width:100%;margin-top:16px}.ux-wa-float{right:14px;bottom:58px}.ux-wa-float .wa-note{font-size:12px;padding:7px 9px}.ux-wa-float .wa-icon{width:52px;height:52px}}
 
 </style>
 
@@ -530,7 +530,7 @@ api("init",null,"GET").then(function(r){window.ME=r.user?{id:r.user.id,name:r.us
 #adm .ax-layout{display:grid!important;grid-template-columns:260px minmax(0,1fr)!important;grid-template-rows:minmax(0,1fr)!important;width:100%!important;height:100%!important;min-height:0!important;max-width:none!important;margin:0!important;padding:0!important;gap:0!important;position:relative!important;inset:auto!important;transform:none!important}
 #adm .ax-sidebar{grid-column:1!important;grid-row:1!important;display:block!important;position:relative!important;inset:auto!important;transform:none!important;float:none!important;width:260px!important;min-width:260px!important;max-width:260px!important;height:100%!important;min-height:0!important;margin:0!important;padding:20px 13px!important;overflow-y:auto!important;overflow-x:hidden!important;background:#151b30!important;color:#fff!important;border:0!important;border-radius:0!important}
 #adm .ax-content{grid-column:2!important;grid-row:1!important;display:block!important;position:relative!important;inset:auto!important;transform:none!important;float:none!important;width:100%!important;min-width:0!important;max-width:none!important;height:100%!important;min-height:0!important;margin:0!important;padding:25px!important;overflow:auto!important;background:#f4f6fb!important;color:#18213a!important}
-#adm .brand{font-size:22px;font-weight:900;padding:10px 12px 22px}
+#adm .brand{font-size:22px;font-weight:900;padding:10px 12px 22px}#adm .ax-brand{display:flex;align-items:center;gap:10px}#adm .ax-brand img{display:block;width:112px;max-width:65%;max-height:42px;object-fit:contain;background:#fff7ea;padding:4px;border-radius:7px}#adm .ax-brand span{font-size:11px;letter-spacing:1px;color:#ff79ad}
 #adm .brand span{color:#ff4f8b}
 #adm nav{display:grid;gap:5px}
 #adm nav button{background:transparent;border:0;color:#cbd2e5;text-align:left;padding:10px 12px;border-radius:8px;cursor:pointer;white-space:normal}
@@ -570,7 +570,7 @@ const A=document.getElementById("adm"),tabs=["Overview","Orders","Products","Cus
 const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const rs=v=>"₹"+Number(v||0).toLocaleString("en-IN");
 const api=(a,b={},m)=>window.UXAPI(a,b,m||"POST");
-function shell(body){A.hidden=false;document.body.style.overflow="hidden";A.innerHTML='<div class="ax-layout"><div class="ax-sidebar"><div class="brand">UraXx <span>ADMIN</span></div><nav>'+tabs.map(t=>'<button class="'+(t===tab?'active':'')+'" data-tab="'+esc(t)+'">'+esc(t)+'</button>').join("")+'</nav></div><div class="ax-content"><div class="top"><div><h1>'+esc(tab)+'</h1><div class="muted">Store control centre · Cash on Delivery</div></div><button class="btn light" id="ax-close">Back to shop</button></div><div id="ax-body">'+body+'</div><div class="message" id="ax-msg"></div></div></div>'}
+function shell(body){A.hidden=false;document.body.style.overflow="hidden";A.innerHTML='<div class="ax-layout"><div class="ax-sidebar"><div class="brand ax-brand"><img src="'+IMG.logo+'" alt="UraXx logo"><span>ADMIN</span></div><nav>'+tabs.map(t=>'<button class="'+(t===tab?'active':'')+'" data-tab="'+esc(t)+'">'+esc(t)+'</button>').join("")+'</nav></div><div class="ax-content"><div class="top"><div><h1>'+esc(tab)+'</h1><div class="muted">Store control centre · Cash on Delivery</div></div><button class="btn light" id="ax-close">Back to shop</button></div><div id="ax-body">'+body+'</div><div class="message" id="ax-msg"></div></div></div>'}
 function say(t){let e=document.getElementById("ax-msg");if(e)e.textContent=t}
 function table(head,rows){return '<div class="panel"><table><thead><tr>'+head.map(x=>'<th>'+x+'</th>').join("")+'</tr></thead><tbody>'+(rows.length?rows.join(""):'<tr><td colspan="'+head.length+'">No records found.</td></tr>')+'</tbody></table></div>'}
 async function init(){shell('<div class="panel">Loading…</div>');try{let [o,p,c]=await Promise.all([api("admin_orders",{},"GET"),api("admin_products",{},"GET"),api("admin_customers",{},"GET")]);orders=o.orders||[];products=p.products||[];customers=c.customers||[];await render()}catch(e){shell('<div class="panel">Could not load admin data: '+esc(e.message)+'</div>')}}
