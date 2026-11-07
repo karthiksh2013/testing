@@ -301,6 +301,56 @@ main{max-width:1240px;padding:30px 26px 78px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card,.cartbtn,.cta,.go,.add{transition:none!important}}
 </style>
 
+
+<style id="uraxx-motion-and-account-polish">
+/* UraXx visual refinement: lightweight motion, refined account actions */
+:root { --ux-ease: cubic-bezier(.22,.75,.25,1); }
+html { scroll-behavior:smooth; }
+body { animation:uxPageIn .55s var(--ux-ease) both; }
+@keyframes uxPageIn { from { opacity:0 } to { opacity:1 } }
+@keyframes uxRiseIn { from { opacity:0; transform:translateY(16px) } to { opacity:1; transform:translateY(0) } }
+@keyframes uxSoftPop { 0% { transform:scale(.97); opacity:0 } 100% { transform:scale(1); opacity:1 } }
+header { transition:box-shadow .25s var(--ux-ease), background-color .25s var(--ux-ease); }
+.logo, .cartbtn, .cta, .go, .add, .chip, .link, .ux-whatsapp-cta, .hero-whatsapp-card, .ux-wa-float .wa-icon {
+  transition:transform .22s var(--ux-ease), box-shadow .22s var(--ux-ease), background-color .22s ease, color .22s ease, opacity .22s ease;
+}
+.cartbtn:hover, .cta:hover, .go:hover, .add:hover { transform:translateY(-2px); filter:saturate(1.08); }
+.cartbtn:active, .cta:active, .go:active, .add:active { transform:translateY(1px) scale(.985); }
+.card { transition:transform .28s var(--ux-ease), box-shadow .28s var(--ux-ease); }
+.card:hover { transform:translateY(-5px); box-shadow:7px 9px 0 var(--ink); }
+.hero h1, .hero p, .hero .cta, .heroimg, .ux-special, .ux-story, .tools, .grid, footer {
+  animation:uxRiseIn .65s var(--ux-ease) both;
+}
+.hero p { animation-delay:.07s }
+.hero .cta { animation-delay:.12s }
+.heroimg { animation-delay:.16s }
+.ux-special { animation-delay:.08s }
+.ux-story { animation-delay:.12s }
+.gate { animation:uxSoftPop .32s var(--ux-ease) both; }
+#adm .ah, #adm .am { animation:uxRiseIn .35s var(--ux-ease) both; }
+.stat, .ord, .ux-product-edit, .ux-brand-edit { transition:transform .22s var(--ux-ease), box-shadow .22s var(--ux-ease); }
+.stat:hover, .ord:hover { transform:translateY(-3px); box-shadow:5px 6px 0 var(--ink); }
+.who { display:flex; align-items:center; justify-content:flex-end; flex-wrap:wrap; gap:7px; }
+.who .link { margin:0; padding:7px 11px; border:1.5px solid var(--line); border-radius:999px; color:var(--ink); text-decoration:none; font-weight:600; line-height:1.2; }
+.who .link:hover { transform:translateY(-2px); background:var(--surface); border-color:var(--pink); box-shadow:0 4px 12px rgba(35,26,69,.10); }
+.who #adm-go { background:linear-gradient(120deg,#fff0f6,#fff8df); border-color:var(--pink); color:#9b2455; font-weight:700; box-shadow:0 2px 0 rgba(255,79,139,.16); }
+.who #adm-go::before { content:"✦"; margin-right:5px; color:var(--pink); }
+.who #out { color:var(--muted); }
+#auth, #adm { overscroll-behavior:contain; }
+#auth .gate { background:var(--surface); border:1px solid var(--line); border-radius:24px; padding:34px 26px; box-shadow:0 18px 55px rgba(35,26,69,.12); }
+button, a, input, select { -webkit-tap-highlight-color:transparent; }
+@media(max-width:700px) {
+  .bar { flex-wrap:wrap; gap:9px; padding:10px 14px; }
+  .who { width:100%; justify-content:flex-start; gap:6px; }
+  .who .link { font-size:13px; padding:7px 10px; }
+  .logo { font-size:25px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  body, .hero h1, .hero p, .hero .cta, .heroimg, .ux-special, .ux-story, .tools, .grid, footer, .gate, #adm .ah, #adm .am { animation:none !important; }
+  html { scroll-behavior:auto; }
+}
+</style>
+
 </head>
 <body>
 <div class="ux-announcement"><span>MAKE SOMETHING WONDERFUL</span><span>Cash on Delivery available · Craft supplies for every idea</span></div>
