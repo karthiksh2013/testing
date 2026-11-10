@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="76" viewBox="0 0 560 76">
+  <title>Python progress: 40%</title>
+  <rect width="560" height="76" rx="12" fill="#0d1117"/>
+  <text x="14" y="27" fill="#e6edf3" font-family="Arial, sans-serif" font-size="17" font-weight="600">🐍  Python</text>
+  <text x="546" y="27" fill="#e6edf3" font-family="Arial, sans-serif" font-size="17" font-weight="700" text-anchor="end">40%</text>
+  <rect x="12" y="42" width="536" height="18" rx="9" fill="#30363d"/>
+  <rect x="12" y="42" width="214.40" height="18" rx="9" fill="#14b8a6"/>
+</svg>
